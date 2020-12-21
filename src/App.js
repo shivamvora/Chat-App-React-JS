@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Shivam Vora</h1>
+        <h1>Chat Website using react.js</h1>
         <SignOut />
       </header>
 
@@ -68,7 +68,7 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
+  const query = messagesRef.orderBy('createdAt').limit(250);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
 
@@ -104,7 +104,7 @@ function ChatRoom() {
 
       <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Type a message..." />
 
-      <button type="submit" disabled={!formValue}>🕊️</button>
+      <button type="submit" disabled={!formValue}>🕊Send</button>
 
     </form>
   </>)
